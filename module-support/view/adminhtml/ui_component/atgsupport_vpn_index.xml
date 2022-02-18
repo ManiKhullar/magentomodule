@@ -1,0 +1,325 @@
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">atgsupport_vpn_index.atgsupport_vpn_index_data_source</item>
+            <item name="deps" xsi:type="string">atgsupport_vpn_index.atgsupport_vpn_index_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">spinner_columns</item>
+        
+    </argument>
+    <dataSource name="atgsupport_vpn_index_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+            <argument name="name" xsi:type="string">atgsupport_vpn_index_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">entity_id</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+    <container name="listing_top">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="template" xsi:type="string">ui/grid/toolbar</item>
+            </item>
+        </argument>
+        <bookmark name="bookmarks">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="namespace" xsi:type="string">atgsupport_vpn_index</item>
+                    </item>
+                </item>
+            </argument>
+        </bookmark>
+        <component name="columns_controls">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+<!--                    <item name="columnsData" xsi:type="array">-->
+<!--                        <item name="provider" xsi:type="string">atgsupport_vpn_index.atgsupport_vpn_index.atgsupport_vpn_columns</item>-->
+<!--                    </item>-->
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/controls/columns</item>
+                    <item name="displayArea" xsi:type="string">dataGridActions</item>
+                </item>
+            </argument>
+        </component>
+<!--        <exportButton name="export_button"/>-->
+        <!--<exportButton class="Magento\Ui\Component\ExportButton">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="options" xsi:type="array">
+                        <item name="cvs" xsi:type="array">
+                            <item name="value" xsi:type="string">csv</item>
+                            <item name="label" xsi:type="string" translate="true">CSV</item>
+                            <item name="url" xsi:type="string">atgsupport/vpn/gridtocsv</item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </exportButton>-->
+        <filters name="listing_filters">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="displayArea" xsi:type="string">dataGridFilters</item>
+                    <item name="dataScope" xsi:type="string">filters</item>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">atgsupport_vpn_index.atgsupport_vpn_index.listing_top.bookmarks</item>
+                        <item name="namespace" xsi:type="string">current.filters</item>
+                    </item>
+                    <item name="childDefaults" xsi:type="array">
+                        <item name="provider" xsi:type="string">atgsupport_vpn_index.atgsupport_vpn_index.listing_top.listing_filters</item>
+                        <item name="imports" xsi:type="array">
+                            <item name="visible" xsi:type="string">atgsupport_vpn_index.atgsupport_vpn_index.listing_top.bookmarks:current.columns.${ $.index }.visible</item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+            <filterRange name="id">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+<!--                        <item name="dataScope" xsi:type="string">id</item>-->
+<!--                        <item name="label" xsi:type="string" translate="true">Id</item>-->
+                        <item name="childDefaults" xsi:type="array">
+                            <item name="provider" xsi:type="string">atgsupport_vpn_index.atgsupport_vpn_index.listing_top.listing_filters</item>
+                        </item>
+                    </item>
+                </argument>
+                <filterInput name="vpn">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="dataScope" xsi:type="string">vpn</item>
+                            <item name="label" xsi:type="string" translate="true">VPN</item>
+                            <item name="placeholder" xsi:type="string" translate="true">VPN</item>
+                        </item>
+                    </argument>
+                </filterInput>
+                <filterInput name="name">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="dataScope" xsi:type="string">name</item>
+                            <item name="label" xsi:type="string" translate="true">Name</item>
+                            <item name="placeholder" xsi:type="string" translate="true">Name</item>
+                        </item>
+                    </argument>
+                </filterInput>
+                <filterInput name="description">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="dataScope" xsi:type="string">description</item>
+                            <item name="label" xsi:type="string" translate="true">Description</item>
+                            <item name="placeholder" xsi:type="string" translate="true">Description</item>
+                        </item>
+                    </argument>
+                </filterInput>
+
+                <filterInput name="is_factory">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="dataScope" xsi:type="string">is_factory</item>
+                            <item name="label" xsi:type="string" translate="true">Factory</item>
+                            <item name="placeholder" xsi:type="string" translate="true">Factory</item>
+                        </item>
+                    </argument>
+                </filterInput>
+                <filterInput name="colorCode">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="dataScope" xsi:type="string">colorCode</item>
+                            <item name="label" xsi:type="string" translate="true">Color Code</item>
+                            <item name="placeholder" xsi:type="string" translate="true">Color Code</item>
+                        </item>
+                    </argument>
+                </filterInput>
+            </filterRange>
+        </filters>
+<!--        <filterSearch name="fulltext"/>-->
+<!--        <massaction name="listing_massaction">-->
+<!--            <argument name="data" xsi:type="array">-->
+<!--                <item name="config" xsi:type="array">-->
+<!--                    <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>-->
+<!--                </item>-->
+<!--            </argument>-->
+<!--            <action name="delete">-->
+<!--                <argument name="data" xsi:type="array">-->
+<!--                    <item name="config" xsi:type="array">-->
+<!--                        <item name="type" xsi:type="string">delete</item>-->
+<!--                        <item name="label" xsi:type="string" translate="true">Delete</item>-->
+<!--                        <item name="url" xsi:type="url" path="nontelchoitem/item/massDelete"/>-->
+<!--                        <item name="confirm" xsi:type="array">-->
+<!--                            <item name="title" xsi:type="string" translate="true">Delete Item</item>-->
+<!--                            <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected items?</item>-->
+<!--                        </item>-->
+<!--                    </item>-->
+<!--                </argument>-->
+<!--            </action>-->
+<!--        </massaction>-->
+        <paging name="listing_paging"/>
+    </container>  
+    <columns name="spinner_columns">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="storageConfig" xsi:type="array">
+                    <item name="provider" xsi:type="string">atgsupport_vpn_index.atgsupport_vpn_index.listing_top.bookmarks</item>
+                    <item name="namespace" xsi:type="string">current</item>
+                </item>
+                <item name="childDefaults" xsi:type="array">
+                    <item name="controlVisibility" xsi:type="boolean">true</item>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">atgsupport_vpn_index.atgsupport_vpn_index.listing_top.bookmarks</item>
+                        <item name="root" xsi:type="string">columns.${ $.index }</item>
+                        <item name="namespace" xsi:type="string">current.${ $.storageConfig.root}</item>
+                    </item>
+                </item>
+            </item>
+        </argument>
+        <selectionsColumn name="ids">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">55</item>
+                    <item name="indexField" xsi:type="string">product_id</item>
+                </item>
+            </argument>
+        </selectionsColumn>
+        <column name="entity_id" sortOrder="10">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">textRange</item>
+                    <item name="sorting" xsi:type="string">asc</item>
+                    <item name="label" xsi:type="string" translate="true">ID</item>
+                </item>
+            </argument>
+        </column>
+        <column name="vpn" sortOrder="11">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                    <item name="label" xsi:type="string" translate="true">VPN</item>
+                    <item name="index" xsi:type="string" translate="true">vpn</item>
+                </item>
+            </argument>
+        </column>
+        <column name="name" sortOrder="12">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sorting" xsi:type="string">asc</item>
+                    <item name="label" xsi:type="string" translate="true">Product Name</item>
+                    <item name="index" xsi:type="string" translate="true">name</item>
+                </item>
+            </argument>
+        </column>
+        <column name="description" sortOrder="13">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sorting" xsi:type="string">asc</item>
+                    <item name="label" xsi:type="string" translate="true">Description</item>
+                    <item name="index" xsi:type="string" translate="true">description</item>
+                </item>
+            </argument>
+        </column>
+        <column name="size_and_fit" sortOrder="14">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sorting" xsi:type="string">asc</item>
+                    <item name="label" xsi:type="string" translate="true">Size And Fit</item>
+                    <item name="index" xsi:type="string" translate="true">size_and_fit</item>
+                </item>
+            </argument>
+        </column>
+        <column name="fabric_contents" sortOrder="15">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sorting" xsi:type="string">asc</item>
+                    <item name="label" xsi:type="string" translate="true">Fabric Contents</item>
+                    <item name="index" xsi:type="string" translate="true">fabric_contents</item>
+                </item>
+            </argument>
+        </column>
+        <column name="care_instructions" sortOrder="16">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sorting" xsi:type="string">asc</item>
+                    <item name="label" xsi:type="string" translate="true">Care Instructions</item>
+                    <item name="index" xsi:type="string" translate="true">care_instructions</item>
+                </item>
+            </argument>
+        </column>
+        <column name="is_factory" component="Magento_Ui/js/grid/columns/select" sortOrder="17">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Altayer\Support\Model\Source\FactoryStatus</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="editor" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Factory</item>
+                    <item name="index" xsi:type="string" translate="true">is_factory</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="colorCode" sortOrder="18">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sorting" xsi:type="string">asc</item>
+                    <item name="label" xsi:type="string" translate="true">Color Code</item>
+                    <item name="index" xsi:type="string" translate="true">colorCode</item>
+                </item>
+            </argument>
+        </column>
+        <column name="status" sortOrder="19">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sorting" xsi:type="string">asc</item>
+                    <item name="label" xsi:type="string" translate="true">Status</item>
+                    <item name="index" xsi:type="string" translate="true">status</item>
+                </item>
+            </argument>
+        </column>
+        <!--<column name="remark" sortOrder="20">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sorting" xsi:type="string">asc</item>
+                    <item name="label" xsi:type="string" translate="true">Remarks</item>
+                    <item name="index" xsi:type="string" translate="true">remark</item>
+                </item>
+            </argument>
+        </column>-->
+        <column name="image" sortOrder="80">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sorting" xsi:type="string">asc</item>
+                    <item name="label" xsi:type="string" translate="true">Images And Video</item>
+                    <item name="index" xsi:type="string" translate="true">image</item>
+                </item>
+            </argument>
+        </column>
+        
+    </columns>
+</listing>

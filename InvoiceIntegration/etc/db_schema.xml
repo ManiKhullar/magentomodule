@@ -1,0 +1,8 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sales_invoice">
+        <column xsi:type="varchar" name="buyer_code" length="255" comment="Buyer Code"/>
+        <column xsi:type="date" name="due_date"  comment="Due Date"/>
+        <column xsi:type="decimal" name="due_amount" scale="4" precision="12" comment="Due Amount"/>
+    </table>
+</schema>

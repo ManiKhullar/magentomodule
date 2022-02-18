@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  RedboxDigital
+ * @package   Altayer_CustomerSegment
+ * @author    Mathew Marchant <mathew.marchant@redboxdigital.com>
+ * @copyright Copyright (c) 2016 Redbox Digital (http://www.redboxdigital.com)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Altayer_CustomerSegment" setup_version="1.0.0">
+        <sequence>
+            <module name="Magento_CustomerSegment"/>
+        </sequence>
+    </module>
+</config>

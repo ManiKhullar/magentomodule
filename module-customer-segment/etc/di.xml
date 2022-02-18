@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Redbox Digital Limited. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Magento\CustomerSegment\Model\Segment"
+                type="Altayer\CustomerSegment\Model\Segment"/>
+
+    <preference for="Magento\CustomerSegment\Model\ResourceModel\Segment"
+                type="Altayer\CustomerSegment\Model\ResourceModel\Segment"/>
+    <preference for="Altayer\CustomerSegment\Api\CustomerSegmentInterface"
+                type="Altayer\CustomerSegment\Model\Api\CustomerSegmentInterface" />
+</config>

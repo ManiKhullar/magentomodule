@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="echidna">
+        <job name="echidna_netsuitesales_order_sync" instance="Echidna\NetsuiteSalesOrder\Cron\OrderSyncNetsuite" method="execute">
+            <config_path>echidna_netsuite/order/cron_schedule</config_path>
+        </job>
+        <job name="echidna_netsuitesales_fulfillment_sync" instance="Echidna\NetsuiteSalesOrder\Cron\FulfillmentSyncNetsuite" method="execute">
+            <config_path>echidna_netsuite/fulfillment/cron_schedule</config_path>
+        </job>
+     </group>
+</config>

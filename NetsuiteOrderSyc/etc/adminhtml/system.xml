@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Echidna, Inc. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="echidna_netsuite" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="netsuite_order_sysc_configration" showInDefault="1" showInWebsite="1" sortOrder="60" translate="label">
+                <label>Netsuite Order Sync Configration</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1"  showInDefault="1" showInWebsite="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="customer_internal_id" translate="label" type="text" sortOrder="2"  showInDefault="1" showInWebsite="1">
+                    <label>Customer Internal Id</label>
+                    <comment>Please enter customer internal id so order assigned to this customer</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="custom_field_script_id" translate="label" type="text" sortOrder="3"  showInDefault="1" showInWebsite="1">
+                    <label>Custom field script id</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="netsuite_shipping_method_mapping" translate="label comment" sortOrder="4"  showInDefault="1" showInWebsite="1">
+                    <label>Shipping Method Mapping With Netsuite</label>
+                    <frontend_model>Echidna\NetsuiteOrderSyc\Block\System\Config\Form\Field\ShippingMethodDynamicRow</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment>This setting will be used to pass shipping method data when order sync in netsuite.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="netsuite_location_mapping" translate="label comment" sortOrder="7" showInDefault="1" showInWebsite="1">
+                    <label>Location Mapping With Netsuite</label>
+                    <frontend_model>Echidna\NetsuiteOrderSyc\Block\System\Config\Form\Field\LocationDynamicRow</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment>This setting will be used to "display" a Netsuite and Magento Stock Mapping.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="netsuite_location_fix_internal_id" translate="label" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Fix Location Internal Id With Netsuite</label>
+                    <frontend_model>Echidna\NetsuiteOrderSyc\Block\System\Config\Form\Field\FixLocationDynamicRow</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment>This setting will be used to Fix Internal id for certain website or shipping method</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="tax_product_internal_id" translate="label" type="text" sortOrder="9"  showInDefault="1" showInWebsite="1">
+                    <label>Internal Id For Tax Product</label>
+                    <comment>Please enter product internal id so tax assigned on this product</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="terms_sync_enabled" translate="label" type="select" sortOrder="10"  showInDefault="1" showInWebsite="1">
+                    <label>Terms Synchronization in Netsuite Order ?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="terms_internal_id" translate="label" type="text" sortOrder="11"  showInDefault="1" showInWebsite="1">
+                    <label>Terms Fix Internal Id</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="terms_sync_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="discount_item_internal_id" translate="label" type="text" sortOrder="12"  showInDefault="1" showInWebsite="1">
+                    <label>Fix Discount Item Internal Id</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

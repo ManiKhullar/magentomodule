@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <altayer_order_monitor>
+            <oms_cloud_configuration>
+                <enable>1</enable>
+                <oms_cloud_url>https://nrd45vz1m6.execute-api.ap-southeast-1.amazonaws.com/DEV/</oms_cloud_url>
+                <oms_cloud_auth_url>https://oms-sfcc.auth.ap-southeast-1.amazoncognito.com/oauth2/token</oms_cloud_auth_url>
+                <oms_cloud_auth_userId>18ml4jtl22gmo49i0v05n35js6</oms_cloud_auth_userId>
+                <oms_cloud_auth_password>3hn4f2rli1popimfpuhu403cmh5ijh86vcr4t3mdvtjnnvqtpr2</oms_cloud_auth_password>
+                <create_enable>1</create_enable>
+                <cancel_enable>1</cancel_enable>
+                <return_enable>1</return_enable>
+            </oms_cloud_configuration>
+        </altayer_order_monitor>
+    </default>
+</config>
