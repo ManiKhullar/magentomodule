@@ -1,6 +1,6 @@
 <?php
 /**
- * @author Amrendra Singh <amrendragr8@gmail.com>
+ * @author   Mani <kmanidev6@gmail.com>
  * @package Altayer_Support
  * */
 

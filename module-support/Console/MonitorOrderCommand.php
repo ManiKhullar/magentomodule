@@ -3,7 +3,7 @@
 /**
  * MonitorOrderCommand.php
  * @package   Altayer\Support\Console
- * @author    Ryazuddin <Ryazuddin@altayer.com>
+ * @author   Mani <kmanidev6@gmail.com>
  * @date      07/Jan/2020
  */
 

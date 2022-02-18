@@ -4,7 +4,7 @@ namespace Altayer\Support\Model;
 /**
  * CountryMapping.php
  * @package   Altayer\Support\Model\Config\Source
- * @author    Ryazuddin <Ryazuddin@altayer.com>
+ * @author   Mani <kmanidev6@gmail.com>
  * @date      07/Jan/2020
  */
 class CountryMapping

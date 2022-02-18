@@ -6,7 +6,7 @@ use Magento\Config\Block\System\Config\Form\Field\FieldArray\AbstractFieldArray;
 /**
  * OrderRanges.php
  * @package   Altayer\Support\Model\Config\Source
- * @author    Amrendra <amrendragr8@gmail.com>
+ * @author   Mani <kmanidev6@gmail.com>
  */
 
 

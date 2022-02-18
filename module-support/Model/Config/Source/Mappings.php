@@ -2,7 +2,7 @@
 /**
  * Mappings.php
  * @package   Altayer\Newsletter\Model\Config\Source
- * @author    Ryazuddin <Ryazuddin@altayer.com>
+ *@author   Mani <kmanidev6@gmail.com>
  * @date      07/Jan/2020
  */
 

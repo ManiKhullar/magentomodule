@@ -3,8 +3,8 @@
  * Segment.php
  * @category
  * @package
- * @copyright Copyright (c) 2016 Redbox Digital (http://www.redboxdigital.com)
- * @author    Mathew Marchant <mathew.marchant@redboxdigital.com>
+ * @copyright Copyright (c) 2016  
+ * @author     Mani <kmanidev6@gmail.com>
  */
 
 namespace Altayer\CustomerSegment\Model\ResourceModel;

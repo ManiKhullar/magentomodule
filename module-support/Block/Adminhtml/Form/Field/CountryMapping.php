@@ -6,7 +6,7 @@ use Magento\Config\Block\System\Config\Form\Field\FieldArray\AbstractFieldArray;
 /**
  * CountryMapping.php
  * @package   Altayer\Support\Model\Config\Source
- * @author    Ryazuddin <Ryazuddin@altayer.com>
+ * @author   Mani <kmanidev6@gmail.com>
  * @date      07/Jan/2020
  */
 

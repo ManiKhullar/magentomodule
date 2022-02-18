@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @author Ryazuddin
+ * @author   Mani <kmanidev6@gmail.com>
  * @package Altayer_Support
  * @date 16/08/2020
  * */

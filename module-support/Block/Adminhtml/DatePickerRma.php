@@ -2,7 +2,7 @@
 /**
  * DatePickerRma.php
  * @package   Altayer\Support\Console
- * @author    Amrendra <amrendragr8@gmail.com>
+ * @author   Mani <kmanidev6@gmail.com>
  */
 namespace Altayer\Support\Block\Adminhtml;
 

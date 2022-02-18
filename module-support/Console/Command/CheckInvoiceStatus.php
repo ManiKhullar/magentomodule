@@ -3,7 +3,7 @@
  * Generate pending invoice ...marking invoice to paid
  *
  * @package Altayer_Support
- * @author Amrendra Singh <amrendragr8@gmail.com>
+ * @author   Mani <kmanidev6@gmail.com>
  */
 
 

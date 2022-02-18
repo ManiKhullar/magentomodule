@@ -3,7 +3,7 @@
  * Regenerate Url rewrites
  *
  * @package Altayer_Support
- * @author Amrendra Singh <amrendragr8@gmail.com>
+ * @author   Mani <kmanidev6@gmail.com>
  */
 
 namespace Altayer\Support\Console\Command;
