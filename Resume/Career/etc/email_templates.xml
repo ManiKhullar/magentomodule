@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+ 
+    <template id="career_email_template" label="Email Form" file="career_email.html" type="html" module="Resume_Career" area="frontend"/>
+    <template id="forest_hr_email_template" label="Email Form" file="forest_hr_email.html" type="html" module="Resume_Career" area="frontend"/>
+     
+</config>
