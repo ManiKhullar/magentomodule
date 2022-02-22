@@ -1,0 +1,21 @@
+{
+    "name": "echidna/module-netsuite",
+    "description": "Echidna NetSuite connector module",
+    "version": "0.0.1-beta",
+    "require": {
+        "magento/framework": "102.0.*",
+        "php": "~7.3.0||~7.4.0"
+    },
+    "type": "magento2-module",
+    "license": [
+        "proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Echidna\\NetSuite\\": ""
+        }
+    }
+}

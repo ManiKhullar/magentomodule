@@ -1,0 +1,21 @@
+<!--@subject Applicant Details @-->
+ 
+{{template config_path="design/email/header_template"}}
+<div>
+	This message has been generated automatically. Please do not reply.
+</div>
+<div>
+	<table> 
+		<tr> <td>Applicant Name: </td><td>{{var name}}</td> </tr> 
+		<tr> <td>Email: </td><td>{{var email}}</td> </tr> 
+		<tr> <td>Contact No.: </td><td>{{var telephone}}</td> </tr> 
+		<tr> <td>Area Of Interest: </td><td>{{var interest}}</td> </tr> 
+		<tr> <td>Position: </td><td>{{var position}}</td> </tr> 
+		<tr> <td>Store Location: </td><td>{{var location}}</td> </tr> 
+		<tr> <td>Current Location: </td><td>{{var current_location}}</td> </tr> 
+		<tr> <td>Current CTC: </td><td>{{var current_ctc}}</td> </tr> 
+		<tr> <td>Linkedin Profile: </td><td>{{var linkedin_profile}}</td> </tr> 
+		</table> 
+</div>
+ 
+{{template config_path="design/email/footer_template"}}

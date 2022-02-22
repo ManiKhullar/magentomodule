@@ -1,0 +1,390 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="altayer" translate="label" sortOrder="1000">
+            <label>Altayer</label>
+        </tab>
+        <section id="altayer_order_monitor" translate="label" type="text" sortOrder="1" showInDefault="1"
+                 showInWebsite="0" showInStore="0">
+            <label>Altayer Support</label>
+            <tab>altayer</tab>
+            <resource>Redbox_Shopfinder::config_shopfinder</resource>
+            <group id="order_monitor" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0"
+                   showInStore="0">
+                <label>Order Monitor configuration</label>
+                <field id="enable_order_monitoring" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Order Monitor</label>
+                    <comment>If set to No order monitoring will stop.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="order_monitor_exclude_emailids" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Exclude emailIds</label>
+                    <comment>to exclude test orders.comma separator email ids ex : 'a@test.com','b@test1.com'</comment>
+                </field>
+                <field id="order_monitor_slack_channel" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Slack channel</label>
+                    <comment> put slack chanel name without # ,example : lifestyle_order_monitor</comment>
+                </field>
+                <field id="order_interval" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Order interval(In Hours)</label>
+                    <comment>This will check the orders from last X hours</comment>
+                    <source_model>Altayer\RMSIntegration\Model\Config\Source\Days</source_model>
+                </field>
+                <field id="country_currency_map" translate="label" sortOrder="6" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Country To Currency Map</label>
+                    <frontend_model>Altayer\Support\Block\Adminhtml\Form\Field\CountryMapping</frontend_model>
+                    <backend_model>Altayer\Support\Model\System\Config\Backend\CountryMapping</backend_model>
+                    <comment>This will hold the map of country(as is will display in slack) and currency </comment>
+                </field>
+            </group>
+            <group id="url_rewrite_config" translate="label" type="text" sortOrder="10" showInDefault="1">
+                <label>URL Rewrite Configuration</label>
+                <field id="url_rewrite_enable" translate="label" type="select" sortOrder="22" showInDefault="1">
+                    <label>Enable URL Rewrite</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="url_configuration" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>URL Configuration</label>
+                    <comment>(enter the attribute code by comma seperated (gender,color,name it will create the URL in this order))</comment>
+                </field>
+                <field id="use_sku" translate="label" type="select" sortOrder="22" showInDefault="1">
+                    <label>Use Sku In URL </label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="url_key_for_adult" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>URL key for Adult</label>
+                    <comment>(if gender is unisex please enter the url key for unisex e.g. men and women. It will append the added text to url instead of unisex)</comment>
+                </field>
+                <field id="url_key_for_kids" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>URL key for Kids</label>
+                    <comment>(if gender is unisex please enter the url key for unisex e.g. boys and girls. It will append the added text to url instead of unisex )</comment>
+                </field>
+            </group>
+            <group id="marketing_data_segmentation" translate="label" type="text" sortOrder="10" showInDefault="1">
+                <label>Marketing Data Segmentation</label>
+                <field id="enable" translate="label" type="select" sortOrder="22" showInDefault="1">
+                    <label>Enable data segmentation</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="created_at" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>Oreder Created Data in Days</label>
+                    <comment>(How many days data to send)</comment>
+                </field>
+                <field id="email_ids" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>emailids</label>
+                    <comment>(Comma separator email ids where data will send)</comment>
+                </field>
+            </group>
+            <group id="oms_error" translate="label" type="text" sortOrder="10" showInDefault="1">
+                <label>Alerting for OMS Error</label>
+                <field id="enable" translate="label" type="select" sortOrder="22" showInDefault="1">
+                    <label>Enable to send OMS Alert</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="threshold_for_error" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>Error Threshold</label>
+                    <comment>(Retrieve how manu days old error message)</comment>
+                </field>
+                <field id="ignore_error" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>ignore these errors</label>
+                    <comment>(comma , separator text to be ignore in filter)</comment>
+                </field>
+                <field id="from_email" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>From</label>
+                    <comment>From Email Address</comment>
+                </field>
+                <field id="to_email" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>To</label>
+                    <comment>(Comma separator to email ids)</comment>
+                </field>
+            </group>
+            <!---  for oms cloud changes!-->
+            <group id="oms_cloud_configuration" translate="label" type="text" sortOrder="10" showInDefault="1">
+                <label>OMS Cloud Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="15" showInDefault="1">
+                    <label>Enable configuration</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>This will enable/disable to push data to OMS cloud</comment>
+                </field>
+                <field id="oms_cloud_url" translate="label" type="text" sortOrder="19" showInDefault="1">
+                    <label>OMS Cloud URL </label>
+                    <comment>URL to Post order (create/cacnel/return) to OMS cloud</comment>
+                </field>
+                <field id="oms_cloud_auth_url" translate="label" type="text" sortOrder="19" showInDefault="1">
+                    <label>OMS Cloud Auth URL</label>
+                    <comment>OMS Cloud Auth URL</comment>
+                </field>
+                <field id="oms_cloud_auth_userId" translate="label" type="text" sortOrder="19" showInDefault="1">
+                    <label>Auth UserId</label>
+                    <comment>OMS Cloud Auth Username</comment>
+                </field>
+                <field id="oms_cloud_auth_password" translate="label" type="text" sortOrder="19" showInDefault="1">
+                    <label>Auth Password</label>
+                    <comment>OMS Cloud Auth Password</comment>
+                </field>
+                <field id="create_enable" translate="label" type="select" sortOrder="20" showInDefault="1">
+                    <label>Enable to send create order</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>This will enable for create order</comment>
+                </field>
+                <field id="cancel_enable" translate="label" type="select" sortOrder="20" showInDefault="1">
+                    <label>Enable to send cancel order</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>This will enable for cancel order</comment>
+                </field>
+                <field id="return_enable" translate="label" type="select" sortOrder="20" showInDefault="1">
+                    <label>Enable to send return order</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>This will enable for return order</comment>
+                </field>
+            </group>
+            <!---  for oms cloud changes!-->
+            <group id="marketing_campaign" translate="label" type="text" sortOrder="10" showInDefault="1">
+                <label>Marketing Campaign</label>
+                <field id="rule_id" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>Rule Id</label>
+                    <comment>(enter Rule ID)</comment>
+                </field>
+                <field id="sftp_host" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>SFTP HOST</label>
+                </field>
+                <field id="sftp_user" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>SFTP USER</label>
+                </field>
+                <field id="sftp_pass" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>SFTP PASSWORD</label>
+                </field>
+                <field id="sftp_directory" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>Directory</label>
+                    <comment>(Enter the directory path where marketing CSV will be upload)</comment>
+                </field>
+            </group>
+            <!--- For Missing Category Reports !-->
+            <group id="Missing_reports" translate="label" type="text" sortOrder="11" showInDefault="1">
+                <label>Missing Reports</label>
+                <field id="create_category_reports" translate="label" type="select" sortOrder="30" showInDefault="1">
+                    <label>Create Missing Category Reports </label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Create Missing Category Reports</comment>
+                </field>
+                <field id="to_email" translate="label" type="text" sortOrder="32" showInDefault="1">
+                    <label>To</label>
+                    <comment>(Comma separator to email ids)</comment>
+                    <depends>
+                        <field id="create_category_reports">1</field>
+                    </depends>
+                </field>
+            </group>
+            <!--- For Missing Category Reports !-->
+            <!--- For Eci Reports !-->
+            <group id="eci_reports" translate="label" type="text" sortOrder="12" showInDefault="1">
+                <label>Eci Reports</label>
+                <field id="create_eci_reports" translate="label" type="select" sortOrder="30" showInDefault="1">
+                    <label>Create Eci Reports </label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Create Eci Reports</comment>
+                </field>
+
+                <field id="to_email" translate="label" type="text" sortOrder="32" showInDefault="1">
+                    <label>To</label>
+                    <comment>(Comma separator to email ids)</comment>
+                    <depends>
+                        <field id="create_eci_reports">1</field>
+                    </depends>
+                </field>
+                <field id="inerval_day" translate="label" type="text" sortOrder="35" showInDefault="1">
+                    <label>Set Interval Time</label>
+                    <comment>(Set Interval time to get  Eci Report of orders)</comment>
+                </field>
+            </group>
+            <!--- For Eci Reports !-->
+            <!--- For fugitive orders !-->
+            <group id="Fugitive_order" translate="label" type="text" sortOrder="10" showInDefault="1">
+                <label>Fugitive Orders</label>
+                <field id="create_fugitive" translate="label" type="select" sortOrder="30" showInDefault="1">
+                    <label>Create Fugitive Orders </label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment> Create the Fugitive Orders</comment>
+                </field>
+            </group>
+            <!--- For fugitive orders !-->
+            <!--- For report orders !-->
+            <group id="report_order" translate="label" type="text" sortOrder="10" showInDefault="1">
+                <label>Report Orders</label>
+                <field id="create_reports" translate="label" type="select" sortOrder="20" showInDefault="1">
+                    <label>Create Report Orders </label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment> Create the Report Orders</comment>
+                </field>
+                <field id="from_email" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>From</label>
+                    <comment>From Email Address</comment>
+                </field>
+                <field id="to_email" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>To</label>
+                    <comment>(Comma separator to email ids)</comment>
+                </field>
+                <field id="inerval_day" translate="label" type="text" sortOrder="24" showInDefault="1">
+                    <label>Set Interval Time</label>
+                    <comment>(Set Interval time to get Report of orders)</comment>
+                </field>
+            </group>
+            <!--- For report orders !-->
+            <!--- For export orders !-->
+            <group id="order_export" translate="label" type="text" sortOrder="10" showInDefault="1">
+                <label>Order Export</label>
+                <field id="create_order_export" translate="label" type="select" sortOrder="20" showInDefault="1">
+                    <label>Create Order Export </label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment> Create the Order Export</comment>
+                </field>
+                <field id="to_email" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>To</label>
+                    <comment>(Comma separator to email ids)</comment>
+                </field>
+                <field id="order_ids" translate="label" type="text" sortOrder="23" showInDefault="1">
+                    <label>Order Ids</label>
+                    <comment>(Comma separator Order Ids)</comment>
+                </field>
+                <field id="ranges" translate="label" sortOrder="25" showInDefault="1" >
+                    <label>Range Of Order</label>
+                    <frontend_model>Altayer\Support\Block\Adminhtml\Form\Field\OrderRanges</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment>This will hold the Order Ids(eg. From 1 to 100) </comment>
+                </field>
+            </group>
+            <!--- For export orders !-->
+            <!--- For export orders cancel!-->
+            <group id="order_export_cancel" translate="label" type="text" sortOrder="10" showInDefault="1">
+                <label>Cancel Order Export</label>
+                <field id="cancel_order_export" translate="label" type="select" sortOrder="20" showInDefault="1">
+                    <label>Cancel Order Export </label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment> Cancel the Order Export</comment>
+                </field>
+                <field id="to_email" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>To</label>
+                    <comment>(Comma separator to email ids)</comment>
+                </field>
+                <field id="from_date" translate="label" type="date" sortOrder="26" showInDefault="1">
+                    <label>From Date</label>
+                    <frontend_model>Altayer\Support\Block\Adminhtml\DatePicker</frontend_model>
+                </field>
+                <field id="to_date" translate="label" type="date" sortOrder="27" showInDefault="1">
+                    <label>To Date</label>
+                    <frontend_model>Altayer\Support\Block\Adminhtml\DatePicker</frontend_model>
+                </field>
+                <field id="order_ids" translate="label" type="text" sortOrder="30" showInDefault="1">
+                    <label>Order Ids</label>
+                    <comment>(Comma separator Order Ids)</comment>
+                </field>
+            </group>
+            <!--- For export orders cancel !-->
+            <!--- For export orders rma request!-->
+            <group id="order_export_rma" translate="label" type="text" sortOrder="10" showInDefault="1">
+                <label>Return Order Export</label>
+                <field id="return_order_export" translate="label" type="select" sortOrder="20" showInDefault="1">
+                    <label>Return Order Export </label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment> Cancel the Order Export</comment>
+                </field>
+                <field id="to_email" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>To</label>
+                    <comment>(Comma separator to email ids)</comment>
+                </field>
+                <field id="from_date" translate="label" type="date" sortOrder="26" showInDefault="1">
+                    <label>From Date</label>
+                    <frontend_model>Altayer\Support\Block\Adminhtml\DatePickerRma</frontend_model>
+                </field>
+                <field id="to_date" translate="label" type="date" sortOrder="27" showInDefault="1">
+                    <label>To Date</label>
+                    <frontend_model>Altayer\Support\Block\Adminhtml\DatePickerRma</frontend_model>
+                </field>
+                <field id="order_ids" translate="label" type="text" sortOrder="30" showInDefault="1">
+                    <label>Order Ids</label>
+                    <comment>(Comma separator Order Ids)</comment>
+                </field>
+            </group>
+            <!--- For export orders rma request !-->
+
+        </section>
+        <section id="altayer_reminder" translate="label" type="text" sortOrder="1" showInDefault="1"
+                 showInWebsite="0" showInStore="0">
+            <label>Altayer Reminder</label>
+            <tab>altayer</tab>
+            <resource>Redbox_Shopfinder::config_shopfinder</resource>
+            <group id="reminder_config" translate="label" type="text" sortOrder="10" showInDefault="1">
+                <label>Reminder Configuration</label>
+                <field id="rule_id" translate="label" type="text" sortOrder="18" showInDefault="1">
+                    <label>Rule Id</label>
+                    <comment>(coupon Code will generate from this Rule ID)</comment>
+                </field>
+                <field id="reminder_threshold" translate="label" type="text" sortOrder="19" showInDefault="1">
+                    <label>Reminder Threshold</label>
+                    <comment>(consider after how many hours the cart will be abandoned)</comment>
+                </field>
+                <field id="reminder_exit_day" translate="label" type="text" sortOrder="20" showInDefault="1">
+                    <label>Reminder Exit Time</label>
+                    <comment>(the exit time in days , not to consider any cart)</comment>
+                </field>
+            </group>
+            <group id="reminder_ftp" translate="label" type="text" sortOrder="10" showInDefault="1">
+                <label>Reminder FTP Details</label>
+                <field id="sftp_host" translate="label" type="text" sortOrder="22" showInDefault="1">
+                    <label>SFTP HOST</label>
+                </field>
+                <field id="sftp_user" translate="label" type="text" sortOrder="23" showInDefault="1">
+                    <label>SFTP USER</label>
+                </field>
+                <field id="sftp_pass" translate="label" type="text" sortOrder="24" showInDefault="1">
+                    <label>SFTP PASSWORD</label>
+                </field>
+                <field id="sftp_directory" translate="label" type="text" sortOrder="25" showInDefault="1">
+                    <label>Directory</label>
+                    <comment>(Enter the directory path where marketing CSV will be upload)</comment>
+                </field>
+            </group>
+        </section>
+        <!--- For payment Fields !-->
+        <section id="payment" translate="label" type="text" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="cashondelivery" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="threshold_value_ge" translate="label" type="text" sortOrder="988" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>cod threshold greater than</label>
+                    <comment>cod threshold for greater then and equals value</comment>
+                </field>
+                <field id="threshold_value_le" translate="label" type="text" sortOrder="999" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>cod threshold less than</label>
+                    <comment>cod threshold for less then and equals value</comment>
+                </field>
+            </group>
+        </section>
+        <!--- For payment Fields !-->
+        <section id="altayer_integration" translate="label" type="text" sortOrder="1" showInDefault="1"
+                 showInWebsite="1" showInStore="1">
+            <!--- For Import VPN Data !-->
+            <group id="vpnimportdata" translate="label" type="text" sortOrder="51" showInDefault="1">
+                <label>Import VPN Data</label>
+                <field id="vpn_import_data" translate="label" type="select" sortOrder="1" showInDefault="1">
+                    <label>Enable Import VPN Data </label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>For Import VPN Data</comment>
+                </field>
+            </group>
+            <!--- For Import VPN Data !-->
+
+            <!--- For Enable upload image to dropbox !-->
+            <group id="dropbox" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <field id="enable_image_proccess_dropbox" translate="label" type="select" sortOrder="99" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable Image Proccess To Dropbox </label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <!--- For Enable upload image to dropbox !-->
+        </section>
+
+
+    </system>
+</config>

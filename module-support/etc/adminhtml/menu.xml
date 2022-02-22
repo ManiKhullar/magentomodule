@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Altayer_Support::altayerSupport" title="Altayer Support" module="Altayer_Support" sortOrder="500"
+             parent="Magento_Backend::system" resource="Altayer_Support::supportMenu"/>
+        <add id="Altayer_Support::supportQueryExecutor" title="Query Executor" module="Altayer_Support" sortOrder="100"
+             parent="Altayer_Support::altayerSupport" action="atgsupport/report"
+             resource="Altayer_Support::queryExecutor"/>
+        <!-- for fugitive order case !-->
+        <add id="Altayer_Support::fugitive" title="Fugitive Orders" module="Altayer_Support" sortOrder="99999"
+             parent="Magento_Sales::sales_operation"
+             action="atgsupport/fugitive"
+             resource="Altayer_Support::fugitive" />
+        <!-- for fugitive order case !-->
+        <remove id="Altayer_Support::altayerSupport"/>
+        <add action="atgsupport/vpn" id="Altayer_Support::altayerSupport_vpn"
+             module="Altayer_Support" parent="Magento_Catalog::inventory"
+             resource="Altayer_Support::Vpn_grid"
+             sortOrder="9999" title="Gap Feed"/>
+    </menu>
+</config>

@@ -1,0 +1,47 @@
+<!--<h1>Career page</h1>-->
+<>
+<h2>WHAT WE LOVE</h2>
+<p>Most things can be taught.  For us, attitude is everything.  It's infectious.  When you're positive it catches on through the office, when you're determined it does too.  We want you to be someone that doesn't just foresee issues, but also comes up with possibilities of how to prevent them, logically.  For us, numbers drive every business decision.  We're also massive advocates of work/life balance - our office is right by Manly Beach and we froth over those that take advantage of it!  We're based here for a reason.</p>
+<form class="form work-withus" action="<?php echo $block->getFormAction() ?>" enctype="multipart/form-data" method="post" id="applyform">
+    <fieldset class="fieldset">
+        <div class="field text1">
+          <strong class="full-div"><?= $block->escapeHtml(__('AREA YOU THRIVE IN:'))?></strong>
+            <div class="control">
+                <textarea name="work_area" title="" class="input-text"  type="text" placeholder="Marketing, warehousing, customer service, etc."></textarea>
+            </div>
+        </div>
+        <div class="field text2">
+          <strong class="full-div"><?= $block->escapeHtml(__('YOUR SKILL SETS:'))?></strong>
+            <div class="control">
+                <textarea name="work_skill" title="" rows="5" class="input-text"  type="text" placeholder="Education, computer program skills, etc."></textarea>
+            </div>
+        </div>
+<div class="field text3">
+          <strong class="full-div"><?= $block->escapeHtml(__('PREVIOUS EXPERIENCE HIGHLIGHTS:'))?></strong>
+            <div class="control">
+                <textarea name="work_experience" title="" rows="5" class="input-text"  type="text" placeholder="Companies, titles, tasks (just your favorites!)"></textarea>
+            </div>
+        </div>
+<div class="field text3">
+          <strong class="full-div"><?= $block->escapeHtml(__('ABOUT YOU:'))?></strong>
+            <div class="control">
+                <textarea name="about_you" title="" rows="5" class="input-text"  type="text" placeholder="e.g. personality, lifestyle, leader or follower, loves, what drives you, where/how you grew up..."></textarea>
+            </div>
+        </div>
+       
+    </fieldset>
+   
+    <div class="actions-toolbar">
+        <div class="primary">
+        <div class="file-attached">
+        <strong class="full-div"><?= $block->escapeHtml(__('ATTACH FILE'))?></strong>
+            <div class="control">
+                <input name="resume" id="resume" type="file" placeholder="Upload Resume" accept="application/pdf, application/msword, .doc, .docx" required/>
+            </div>
+            </div>
+            <button type="submit" title="Submit" class="action submit primary">
+                <span><?= $block->escapeHtml(__('SUBMIT'))?></span>
+            </button>
+        </div>
+    </div>
+</form>

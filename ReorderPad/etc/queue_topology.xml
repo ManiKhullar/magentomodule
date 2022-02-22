@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Echidna Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/topology.xsd">
+    <exchange name="echidna-salesorder-success-queue" type="topic" connection="amqp">
+        <binding id="processAddOrderToQueueBinding" topic="sales.order.success.queue" destinationType="queue" destination="sales_order_success_queue"/>
+    </exchange>
+</config>

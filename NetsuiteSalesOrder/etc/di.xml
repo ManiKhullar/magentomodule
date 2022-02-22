@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!--
+/**
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Config\Model\Config\TypePool">
+        <arguments>
+            <argument name="sensitive" xsi:type="array">
+                <item name="echidna_netsuite/setting/consumer_key" xsi:type="string">1</item>
+                <item name="echidna_netsuite/setting/consumer_secret" xsi:type="string">1</item>
+                <item name="echidna_netsuite/setting/token_id" xsi:type="string">1</item>
+                <item name="echidna_netsuite/setting/token_secret" xsi:type="string">1</item>
+            </argument>
+            <argument name="environment" xsi:type="array">
+                <item name="echidna_netsuite/setting/host" xsi:type="string">1</item>
+                <item name="echidna_netsuite/setting/account_id" xsi:type="string">1</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Echidna\Netsuite\Model\Api\SearchProcessors" type="Magento\Framework\DataObject">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="basic" xsi:type="array">
+                    <item name="salesOrder" xsi:type="object">\NetSuite\Classes\TransactionSearchBasicFactory</item>
+                    <item name="itemFulfillment" xsi:type="object">\NetSuite\Classes\TransactionSearchBasicFactory</item>
+                    <item name="customer" xsi:type="object">\NetSuite\Classes\CustomerSearchBasicFactory</item>
+                    <item name="reorderPad" xsi:type="object">\NetSuite\Classes\CustomRecordSearchBasicFactory</item>
+                    <item name="invoice" xsi:type="object">\NetSuite\Classes\TransactionSearchBasicFactory</item>
+                    <item name="item" xsi:type="object">\NetSuite\Classes\ItemSearchBasicFactory</item>
+                    <item name="location" xsi:type="object">\NetSuite\Classes\LocationSearchBasicFactory</item>
+                </item>
+                <item name="advanced" xsi:type="array">
+                    <item name="salesOrder" xsi:type="object">\NetSuite\Classes\TransactionSearchAdvancedFactory</item>
+                    <item name="itemFulfillment" xsi:type="object">\NetSuite\Classes\TransactionSearchAdvancedFactory</item>
+                    <item name="customer" xsi:type="object">\NetSuite\Classes\CustomerSearchAdvancedFactory</item>
+                    <item name="reorderPad" xsi:type="object">\NetSuite\Classes\CustomRecordSearchAdvancedFactory</item>
+                    <item name="invoice" xsi:type="object">\NetSuite\Classes\TransactionSearchAdvancedFactory</item>
+                    <item name="item" xsi:type="object">\NetSuite\Classes\ItemSearchAdvancedFactory</item>
+                    <item name="location" xsi:type="object">\NetSuite\Classes\LocationSearchAdvancedFactory</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Echidna\Netsuite\Model\Api\AddRequestProcessors" type="Magento\Framework\DataObject">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="salesOrder" xsi:type="object">\NetSuite\Classes\SalesOrderFactory</item>
+                <item name="initializeRequest" xsi:type="object">\NetSuite\Classes\InitializeRequestFactory</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Echidna\Netsuite\Model\Api\SearchPool" type="Magento\Framework\DataObject">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="SearchEnumMultiSelectField" xsi:type="object">\NetSuite\Classes\SearchEnumMultiSelectFieldFactory</item>
+                <item name="SearchLongField" xsi:type="object">\NetSuite\Classes\SearchLongFieldFactory</item>
+                <item name="SearchMultiSelectField" xsi:type="object">\NetSuite\Classes\SearchMultiSelectFieldFactory</item>
+                <item name="SearchStringField" xsi:type="object">\NetSuite\Classes\SearchStringFieldFactory</item>
+                <item name="SearchTextNumberField" xsi:type="object">\NetSuite\Classes\SearchTextNumberFieldFactory</item>
+                <item name="SearchCustomFieldList" xsi:type="object">\NetSuite\Classes\SearchCustomFieldListFactory</item>
+                <item name="RecordRef" xsi:type="object">\NetSuite\Classes\RecordRefFactory</item>
+                <item name="SearchDateField" xsi:type="object">\NetSuite\Classes\SearchDateFieldFactory</item>
+                <item name="SearchBooleanField" xsi:type="object">\NetSuite\Classes\SearchBooleanFieldFactory</item>
+                <item name="ListOrRecordRef" xsi:type="object">\NetSuite\Classes\ListOrRecordRefFactory</item>
+                <item name="SalesOrderItemList" xsi:type="object">\NetSuite\Classes\SalesOrderItemListFactory</item>
+                <item name="SalesOrderItem" xsi:type="object">\NetSuite\Classes\SalesOrderItemFactory</item>
+                <!-- CustomFields -->
+                <item name="CustomFieldList" xsi:type="object">\NetSuite\Classes\CustomFieldListFactory</item>
+                <item name="CustomFieldRef" xsi:type="object">\NetSuite\Classes\CustomFieldRefFactory</item>
+                <item name="StringCustomFieldRef" xsi:type="object">\NetSuite\Classes\StringCustomFieldRefFactory</item>
+                <item name="SearchStringCustomField" xsi:type="object">\NetSuite\Classes\SearchStringCustomFieldFactory</item>
+                <item name="SearchBooleanCustomField" xsi:type="object">\NetSuite\Classes\SearchBooleanCustomFieldFactory</item>
+                <item name="SearchLongCustomField" xsi:type="object">\NetSuite\Classes\SearchLongCustomFieldFactory</item>
+                <item name="SearchDoubleCustomField" xsi:type="object">\NetSuite\Classes\SearchDoubleCustomFieldFactory</item>
+                <item name="SearchDateCustomField" xsi:type="object">\NetSuite\Classes\SearchDateCustomFieldFactory</item>
+                <item name="SearchEnumMultiSelectCustomField" xsi:type="object">\NetSuite\Classes\SearchEnumMultiSelectCustomFieldFactory</item>
+                <item name="SearchMultiSelectCustomField" xsi:type="object">\NetSuite\Classes\SearchMultiSelectCustomFieldFactory</item>
+                <!-- Search Basic Objects -->
+                <item name="CustomRecordSearch" xsi:type="object">\NetSuite\Classes\CustomRecordSearchFactory</item>
+                <item name="CustomRecordSearchRow" xsi:type="object">\NetSuite\Classes\CustomRecordSearchRowFactory</item>
+                <item name="CustomRecordSearchBasic" xsi:type="object">\NetSuite\Classes\CustomRecordSearchBasicFactory</item>
+                <item name="FileSearchBasic" xsi:type="object">\NetSuite\Classes\FileSearchBasicFactory</item>
+                <item name="MessageSearchBasic" xsi:type="object">\NetSuite\Classes\MessageSearchBasicFactory</item>
+                <item name="EmployeeSearchBasic" xsi:type="object">\NetSuite\Classes\EmployeeSearchBasicFactory</item>
+                <item name="NoteSearchBasic" xsi:type="object">\NetSuite\Classes\NoteSearchBasicFactory</item>
+                <item name="CustomSearchJoin" xsi:type="object">\NetSuite\Classes\CustomSearchJoinFactory</item>
+                <item name="SearchRecordBasic" xsi:type="object">\NetSuite\Classes\SearchRecordBasicFactory</item>
+                <item name="CustomizationRef" xsi:type="object">\NetSuite\Classes\CustomizationRefFactory</item>
+                <item name="SearchRowBasic" xsi:type="object">\NetSuite\Classes\SearchRowBasicFactory</item>
+                <item name="ItemSearchBasic" xsi:type="object">\NetSuite\Classes\ItemSearchBasicFactory</item>
+                <!-- Initialize Request Object -->
+                <item name="InitializeRef" xsi:type="object">\NetSuite\Classes\InitializeRefFactory</item>
+                <item name="InitializeRecord" xsi:type="object">\NetSuite\Classes\InitializeRecordFactory</item>
+                <item name="ItemFulfillmentPackageList" xsi:type="object">\NetSuite\Classes\ItemFulfillmentPackageListFactory</item>
+                <item name="ItemFulfillmentPackage" xsi:type="object">\NetSuite\Classes\ItemFulfillmentPackageFactory</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Echidna\Netsuite\Model\Api\RequestBuilder">
+        <arguments>
+            <argument name="searchProcessors" xsi:type="object">Echidna\Netsuite\Model\Api\SearchProcessors</argument>
+            <argument name="addRequestProcessors" xsi:type="object">Echidna\Netsuite\Model\Api\AddRequestProcessors</argument>
+        </arguments>
+    </type>
+    <type name="Echidna\Netsuite\Model\Api\RequestFieldBuilder">
+        <arguments>
+            <argument name="requestPool" xsi:type="array">
+                <item name="requestFields" xsi:type="object">Echidna\Netsuite\Model\Api\SearchPool</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

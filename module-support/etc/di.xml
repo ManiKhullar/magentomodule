@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category   Altayer
+ * @package    Altayer_Support
+ * @author   Mani <kmanidev6@gmail.com>
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="updateProduct" xsi:type="object">Altayer\Support\Console\UpdateProduct</item>
+                <item name="orderMonitor" xsi:type="object">Altayer\Support\Console\MonitorOrderCommand</item>
+                <item name="videoFix" xsi:type="object">Altayer\Support\Console\UpdateVideoURL</item>
+                <item name="setReminder" xsi:type="object">Altayer\Support\Console\SendReminder</item>
+                <item name="altayer:urlrewrites:regenerate" xsi:type="object">Altayer\Support\Console\Command\RegenerateUrlRewrites</item>
+                <item name="altayer:checkInvoiceStatus" xsi:type="object">Altayer\Support\Console\Command\CheckInvoiceStatus</item>
+                <item name="altayer:updateGenderAttributeValue" xsi:type="object">Altayer\Support\Console\Command\UpdateGenderAttributeValue</item>
+                <item name="sendTransactionalEmail" xsi:type="object">Altayer\Support\Console\Command\DispatchTransactionalEmailCommand</item>
+                <item name="altayer:marketingCampaign" xsi:type="object">Altayer\Support\Console\Command\MarketingCampaign</item>
+                <item name="altayer:alertOMSError" xsi:type="object">Altayer\Support\Console\SendOMSError</item>
+                <item name="altayer:sendAppDataSegmentaion" xsi:type="object">Altayer\Support\Console\SendAppSegmentationData</item>
+                <item name="OrderTransactionReport" xsi:type="object">Altayer\Support\Console\OrderTransactionReport</item>
+                <item name="OrderExportFromIds" xsi:type="object">Altayer\Support\Console\OrderExportFromIds</item>
+                <item name="OrderExportFromIdsCancel" xsi:type="object">Altayer\Support\Console\OrderExportCancel</item>
+                <item name="OrderExportFromIdsRma" xsi:type="object">Altayer\Support\Console\OrderExportFromIdsRma</item>
+                <item name="OrderSendToOmsCloud" xsi:type="object">Altayer\Support\Console\OrderSendOmsCloudCommand</item>
+                <item name="MissingCategoryReports" xsi:type="object">Altayer\Support\Console\MissingCategoryReportsCommand</item>
+                <item name="OrderEciReport" xsi:type="object">Altayer\Support\Console\OrderEciReport</item>
+                <item name="ImportVpnData" xsi:type="object">Altayer\Support\Console\ImportVpnData</item>
+                <item name="UpdateSkuVpnData" xsi:type="object">Altayer\Support\Console\UpdateProductCopyAttribute</item>
+                <item name="RemoveDuplicateImageDropbox" xsi:type="object">Altayer\Support\Console\RemoveDuplicateImageDropbox</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="atgsupport_vpn_index_data_source" xsi:type="string">Altayer\Support\Model\ResourceModel\DataProvider\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Altayer\Support\Model\ResourceModel\DataProvider\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">atg_vpn_data</argument>
+            <argument name="eventPrefix" xsi:type="string">altayer_support_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">altayer_grid_support_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Altayer\Support\Model\ResourceModel\DataProvider</argument>
+        </arguments>
+    </type>
+    <preference for="Altayer\Support\Api\ProductUpdateInterface" type="Altayer\Support\Model\ProductUpdate"/>
+    <preference for="Magento\CatalogUrlRewrite\Model\ProductUrlPathGenerator" type="Altayer\Support\Model\ProductUrlPathGenerator" />
+</config>

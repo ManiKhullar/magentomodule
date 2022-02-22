@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+		<add id="Resume_Career::career" title="Career" resource="Resume_Career::career" parent="Resume_Core::core" module="Resume_Career" sortOrder="80"/>        
+        <add id="Resume_Career::application_list" title="Applicant List" module="Resume_Career" sortOrder="10" parent="Resume_Career::career" action="career/index/" resource="Resume_Career::manage"/>
+    </menu>
+</config>
